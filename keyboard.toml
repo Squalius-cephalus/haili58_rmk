@@ -46,7 +46,7 @@ keymap = [
 connection = "ble"
 
 [split.central]
-rows = 10
+rows = 5
 cols = 6
 row_offset = 0
 col_offset = 0
