@@ -1,50 +1,77 @@
 # Documentation: https://haobogu.github.io/rmk/keyboard_configuration.html
 [keyboard]
-name = "RMK Keyboard"
+name = "haili58"
 product_name = "RMK Keyboard"
 vendor_id = 0x4c4b
 product_id = 0x4643
-manufacturer = "haobo"
-chip = "rp2040"
+manufacturer = "rmk"
+chip = "nrf52840"
 
-[matrix]
-# Input and output pins are mandatory
-input_pins = ["PIN_6", "PIN_7", "PIN_8", "PIN_9"]
-output_pins = ["PIN_19", "PIN_20", "PIN_21"]
-# WARNING: Currently row2col/col2row is set in RMK's feature gate, configs here do nothing actually
-# row2col = true
+# [matrix]
+# Not used for split keyboards
+
 
 [layout]
-rows = 4
-cols = 3
+rows = 10
+cols = 6
 layers = 2
 keymap = [
     [
-        ["A", "B", "C"],
-        ["Kc1", "Kc2", "Kc3"],
-        ["LCtrl", "MO(1)", "LShift"],
-        ["OSL(1)", "LT(2, Kc9)", "LM(1, LShift | LGui)"]
+        ["Escape", "Kc1", "Kc2", "Kc3", "Kc4", "Kc5"],
+        ["Tab", "Q", "W", "E", "R", "Y"],
+        ["LCtrl", "A", "S", "D", "F", "G"],
+        ["LShift", "Z", "X", "C", "V", "B"],
+        ["LAlt", "LGui", "Space", "Delete", "Enter", "AudioMute"],
+        ["Kc6", "Kc7", "Kc8", "Kc9", "Kc0", "Backspace"],
+        ["Y", "U", "I", "O", "P", "Backslash"],
+        ["H", "J", "K", "L", "Semicolon", "Quote"],
+        ["N", "M", "Comma", "Dot", "Slash", "Enter"],
+        ["MO(1)", "MO(1)", "Space", "Delete", "Enter", "AudioMute"]
     ],
     [
-        ["_", "TT(1)", "TG(2)"],
-        ["_", "_", "_"],
-        ["_", "_", "_"],
-        ["_", "_", "_"]
+        ["_", "_", "_", "_", "_", "_"],
+        ["_", "_", "_", "_", "_", "_"],
+        ["_", "_", "_", "_", "_", "_"],
+        ["_", "_", "_", "_", "_", "_"]
     ],
 ]
-
-[light]
-# All light pins are high-active by default, uncomment if you want it to be low-active
-# capslock.pin = "PB2"
-# capslock.low_active = true
-# scrolllock.pin = "PA3"
-# scrolllock.low_active = true
-# Just ignore if no light pin is used for it
-# numslock.pin = "PA5"
-# numslock.low_active = true
 
 
 
 [storage]
 # Storage feature is enabled by default
 # enabled = false
+
+[split]
+connection = "ble"
+
+[split.central]
+rows = 2
+cols = 2
+row_offset = 0
+col_offset = 0
+
+[split.central.matrix]
+matrix_type = "normal"
+row_pins = ["P0_12", "P0_13"]
+col_pins = ["P0_14", "P0_15"]
+
+[[split.peripheral]]
+rows = 5
+cols = 6
+row_offset = 0
+col_offset = 0
+[split.peripheral.matrix]
+matrix_type = "normal"
+row_pins = ["P0_11", "P1_04", "P1_06", "P0_09", "P0_10"]
+col_pins = ["P0_31", "P0_29", "P0_02", "P1_15", "P1_13", "P1_11"]
+
+[[split.peripheral]]
+rows = 5
+cols = 6
+row_offset = 0
+col_offset = 5
+[split.peripheral.matrix]
+matrix_type = "normal"
+row_pins = ["P0_11", "P1_04", "P1_06", "P0_09", "P0_10"]
+col_pins = ["P1_11", "P1_13", "P1_15", "P0_02", "P0_29", "P0_31"]
