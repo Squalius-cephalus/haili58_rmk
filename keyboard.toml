@@ -52,15 +52,15 @@ keymap = [
 connection = "ble"
 
 [split.central]
-rows = 10
-cols = 6
+rows = 0
+cols = 0
 row_offset = 0
 col_offset = 0
 
 [split.central.matrix]
 matrix_type = "normal"
-row_pins = ["P0_12", "P0_13"]
-col_pins = ["P0_14", "P0_15"]
+row_pins = []
+col_pins = []
 
 [[split.peripheral]]
 rows = 5
