@@ -1095,7 +1095,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "haili58"
+name = "haili58-rmk"
 version = "0.1.0"
 dependencies = [
  "bt-hci",
