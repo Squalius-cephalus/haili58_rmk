@@ -1,10 +1,9 @@
-# Documentation: https://haobogu.github.io/rmk/keyboard_configuration.html
 [keyboard]
 name = "haili58"
-product_name = "RMK Keyboard"
+product_name = "haili58"
 vendor_id = 0x4c4b
 product_id = 0x4643
-manufacturer = "rmk"
+manufacturer = "RMK"
 chip = "nrf52840"
 
 # [matrix]
@@ -12,34 +11,20 @@ chip = "nrf52840"
 
 
 [layout]
-rows = 10
-cols = 6
-layers = 2
+rows = 5
+cols = 12
+layers = 5
 keymap = [
-    [
-        ["Escape", "Kc1", "Kc2", "Kc3", "Kc4", "Kc5"],
-        ["Tab", "Q", "W", "E", "R", "Y"],
-        ["LCtrl", "A", "S", "D", "F", "G"],
-        ["LShift", "Z", "X", "C", "V", "B"],
-        ["LAlt", "LGui", "Space", "Delete", "Enter", "AudioMute"],
-        ["Kc6", "Kc7", "Kc8", "Kc9", "Kc0", "Backspace"],
-        ["Y", "U", "I", "O", "P", "Backslash"],
-        ["H", "J", "K", "L", "Semicolon", "Quote"],
-        ["N", "M", "Comma", "Dot", "Slash", "Enter"],
-        ["MO(1)", "MO(1)", "Space", "Delete", "Enter", "AudioMute"]
-    ],
-    [
-        ["_", "_", "_", "_", "_", "_"],
-        ["_", "_", "_", "_", "_", "_"],
-        ["_", "_", "_", "_", "_", "_"],
-        ["_", "_", "_", "_", "_", "_"],
-        ["_", "_", "_", "_", "_", "_"],
-        ["_", "_", "_", "_", "_", "_"],
-        ["_", "_", "_", "_", "_", "_"],
-        ["_", "_", "_", "_", "_", "_"],
-        ["_", "_", "_", "_", "_", "_"],
-        ["_", "_", "_", "_", "_", "_"]
-    ],
+    
+        [
+        ["Escape", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "Backspace"],
+        ["Tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "Backslash"],
+        ["LCtrl","A", "S", "D", "F", "G", "H", "J", "K", "L", "Semicolon", "Quote"],
+        ["LShift","Z", "X", "C", "V", "B", "N", "M", "Comma", "Dot", "Slash", "retn"],
+        ["RAlt","LGui", "Space", "LGui", "_", "_", "_", "_", "_", "_", "_", "_"],
+
+        
+    ]
 ]
 
 
@@ -47,6 +32,7 @@ keymap = [
 [storage]
 # Storage feature is enabled by default
 # enabled = false
+
 
 [split]
 connection = "ble"
@@ -67,17 +53,42 @@ rows = 5
 cols = 6
 row_offset = 0
 col_offset = 0
+
 [split.peripheral.matrix]
 matrix_type = "normal"
 row_pins = ["P0_11", "P1_04", "P1_06", "P0_09", "P0_10"]
 col_pins = ["P0_31", "P0_29", "P0_02", "P1_15", "P1_13", "P1_11"]
 
+[[split.peripheral.input_device.encoder]]
+pin_a = "P0_24"
+pin_b = "P1_00"
+phase = "resolution"
+resolution = 2
+internal_pullup = true
+reverse = true
+
 [[split.peripheral]]
 rows = 5
 cols = 6
 row_offset = 0
-col_offset = 5
+col_offset = 6
 [split.peripheral.matrix]
 matrix_type = "normal"
 row_pins = ["P0_11", "P1_04", "P1_06", "P0_09", "P0_10"]
 col_pins = ["P1_11", "P1_13", "P1_15", "P0_02", "P0_29", "P0_31"]
+
+[[split.peripheral.input_device.encoder]]
+pin_a = "P0_24"
+pin_b = "P1_00"
+phase = "resolution"
+resolution = 1
+internal_pullup = true
+reverse = true
+
+[rmk]
+split_peripherals_num = 2
+
+[host]
+# Unlock combination: simultaneous press of specified keys
+# Format: [[row, col], [row, col], ...]
+unlock_keys = [[0, 0], [0, 1]]  # Keys at (row=0,col=0) and (row=0,col=1)
